@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE2EC94B2BC6A5D7002A0B1D /* NewMidGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EC94A2BC6A5D7002A0B1D /* NewMidGroupModel.swift */; };
+		CE2EC94D2BC6A782002A0B1D /* MidGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EC94C2BC6A782002A0B1D /* MidGroup.swift */; };
+		CE2EC94F2BC6A792002A0B1D /* BigGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EC94E2BC6A792002A0B1D /* BigGroup.swift */; };
+		CE2EC9512BC6ABC7002A0B1D /* MidGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2EC9502BC6ABC7002A0B1D /* MidGroupModel.swift */; };
 		CEABB6282BB9A59000B8B1DF /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABB6272BB9A59000B8B1DF /* HeaderView.swift */; };
 		CEABB62A2BBA422B00B8B1DF /* TLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABB6292BBA422B00B8B1DF /* TLButton.swift */; };
 		CEABB62C2BBA83E300B8B1DF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABB62B2BBA83E300B8B1DF /* Extensions.swift */; };
@@ -57,6 +61,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE2EC94A2BC6A5D7002A0B1D /* NewMidGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMidGroupModel.swift; sourceTree = "<group>"; };
+		CE2EC94C2BC6A782002A0B1D /* MidGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidGroup.swift; sourceTree = "<group>"; };
+		CE2EC94E2BC6A792002A0B1D /* BigGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigGroup.swift; sourceTree = "<group>"; };
+		CE2EC9502BC6ABC7002A0B1D /* MidGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidGroupModel.swift; sourceTree = "<group>"; };
 		CEABB6272BB9A59000B8B1DF /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		CEABB6292BBA422B00B8B1DF /* TLButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLButton.swift; sourceTree = "<group>"; };
 		CEABB62B2BBA83E300B8B1DF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -141,6 +149,8 @@
 				CEFEF3F72BAEB4F6004033E9 /* ProfileModel.swift */,
 				CEABB62F2BBAA48900B8B1DF /* NewItemModel.swift */,
 				CEABB6312BBAA4BA00B8B1DF /* ItemModel.swift */,
+				CE2EC94A2BC6A5D7002A0B1D /* NewMidGroupModel.swift */,
+				CE2EC9502BC6ABC7002A0B1D /* MidGroupModel.swift */,
 				CEFEF3FB2BAEB50E004033E9 /* LoginModel.swift */,
 				CEFEF3FD2BAEB518004033E9 /* RegModel.swift */,
 			);
@@ -163,6 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				CEFEF3ED2BAEB42D004033E9 /* User.swift */,
+				CE2EC94E2BC6A792002A0B1D /* BigGroup.swift */,
+				CE2EC94C2BC6A782002A0B1D /* MidGroup.swift */,
 				CEABB6332BBAA4C900B8B1DF /* Item.swift */,
 			);
 			path = Models;
@@ -370,6 +382,7 @@
 				CEABB6282BB9A59000B8B1DF /* HeaderView.swift in Sources */,
 				CEFEF3F82BAEB4F6004033E9 /* ProfileModel.swift in Sources */,
 				CEFEF3F62BAEB4AB004033E9 /* MainModel.swift in Sources */,
+				CE2EC94F2BC6A792002A0B1D /* BigGroup.swift in Sources */,
 				CECDC1AC2BAE8B33000D436D /* Main.swift in Sources */,
 				CEFEF3FC2BAEB50E004033E9 /* LoginModel.swift in Sources */,
 				CEABB6362BBAA6C000B8B1DF /* ItemsView.swift in Sources */,
@@ -377,13 +390,16 @@
 				CEFEF3FE2BAEB518004033E9 /* RegModel.swift in Sources */,
 				CEFEF3F42BAEB4A2004033E9 /* ListModel.swift in Sources */,
 				CEABB6322BBAA4BA00B8B1DF /* ItemModel.swift in Sources */,
+				CE2EC94B2BC6A5D7002A0B1D /* NewMidGroupModel.swift in Sources */,
 				CEFEF3EC2BAEB3F7004033E9 /* ToDoListView.swift in Sources */,
 				CEABB6302BBAA48900B8B1DF /* NewItemModel.swift in Sources */,
 				CEFEF3E82BAEB3A4004033E9 /* RegView.swift in Sources */,
+				CE2EC94D2BC6A782002A0B1D /* MidGroup.swift in Sources */,
 				CEABB62E2BBAA12400B8B1DF /* ProfileView.swift in Sources */,
 				CEABB63A2BBAA6F400B8B1DF /* NewItemsView.swift in Sources */,
 				CEFEF3EE2BAEB42D004033E9 /* User.swift in Sources */,
 				CEABB62C2BBA83E300B8B1DF /* Extensions.swift in Sources */,
+				CE2EC9512BC6ABC7002A0B1D /* MidGroupModel.swift in Sources */,
 				CECDC1AA2BAE8B33000D436D /* todolistApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
