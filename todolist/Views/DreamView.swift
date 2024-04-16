@@ -8,13 +8,13 @@
 import SwiftUI
 import FirebaseFirestoreSwift
 
-struct ToDoListView: View {
+struct DreamView: View {
     @StateObject var viewModel: ListModel
-    @FirestoreQuery var items: [Item]
+    @FirestoreQuery var bigGroups: [BigGroup]
     
     init(userId: String) {
-        self._items = FirestoreQuery(
-            collectionPath: "users/\(userId)/\todos"
+        self._bigGroups = FirestoreQuery(
+            collectionPath: "users/\(userId)/bigGoal"
         )
         
         self._viewModel = StateObject(
@@ -25,18 +25,18 @@ struct ToDoListView: View {
     var body: some View {
         NavigationView{
             VStack{
-                List(items) { item in
-                    ItemsView(item: item)
+                List(bigGroups) { bigGroup in
+                    BigGroupsView(bigGroup: bigGroup)
                         .swipeActions{
                             Button("Delete"){
                                 //Delete
-                                viewModel.delete(id: item.id)
+                                viewModel.delete(id: bigGroup.id)
                             }
                             .tint(.red)
                         }
                 }
             }
-            .navigationTitle("To Do List")
+            .navigationTitle("Dream")
             .toolbar{
                 Button{
                     //action
@@ -53,5 +53,5 @@ struct ToDoListView: View {
 }
 
 #Preview {
-    ToDoListView(userId: "S1We86qx9qhO62SVNIpYbsyH9NG3")
+    DreamView(userId: "S1We86qx9qhO62SVNIpYbsyH9NG3")
 }

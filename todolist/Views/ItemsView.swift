@@ -40,6 +40,15 @@ struct ItemsView: View {
                           title: "todo",
                          dueDate: Date().timeIntervalSince1970,
                          createDate: Date().timeIntervalSince1970,
-                          parent:MidGroup,
+                          parent:MidGroup( id: "001",
+                                           title: "mid",
+                                           dueDate: Date().timeIntervalSince1970,
+                                           createDate: Date().timeIntervalSince1970,
+                                           parent: BigGroup(id: "002",
+                                                            title: "big",
+                                                            dueDate: Date().timeIntervalSince1970,
+                                                            createDate: Date().timeIntervalSince1970,
+                                                            isDone: false),
+                                           isDone: false),
                          isDone: false))
 }

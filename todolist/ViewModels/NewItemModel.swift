@@ -14,24 +14,20 @@ class NewItemModel: ObservableObject{
     @Published var title = ""
     @Published var dueDate = Date()
     @Published var showAlert = false
-    @Published var grandParent: BigGroup
-    @Published var parent: MidGroup
+    @Published var parent = MidGroup( id: "",
+                                    title: "",
+                                    dueDate: Date().timeIntervalSince1970,
+                                              createDate: Date().timeIntervalSince1970,
+                                              parent: BigGroup(id: "",
+                                                               title: "",
+                                                               dueDate: Date().timeIntervalSince1970,
+                                                               createDate: Date().timeIntervalSince1970,
+                                                               isDone: false),
+                                              isDone: false)
 
     
     
     init(){
-        grandParent = BigGroup(id: "",
-                               title: "",
-                               dueDate: Date().timeIntervalSince1970,
-                               createDate: Date().timeIntervalSince1970,
-                               isDone: false)
-
-        parent = MidGroup( id: "",
-                           title: "",
-                           dueDate: Date().timeIntervalSince1970,
-                           createDate: Date().timeIntervalSince1970,
-                           parent: grandParent,
-                           isDone: false)
     }
     
     func save(){
@@ -58,6 +54,10 @@ class NewItemModel: ObservableObject{
         let db = Firestore.firestore()
         db.collection("users")
                 .document(uId)
+                .collection("bigGoal")
+                .document(parent.parent.id)
+                .collection("midGoal")
+                .document(parent.id)
                 .collection("todos")
                 .document(newId)
                 .setData(newItem.asDictionary())
