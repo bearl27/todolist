@@ -14,13 +14,16 @@ class NewMidGroupModel: ObservableObject{
     @Published var title = ""
     @Published var dueDate = Date()
     @Published var showAlert = false
-    @Published var parent = BigGroup(id: <#T##String#>,
-                                     title: <#T##String#>,
-                                     dueDate: <#T##TimeInterval#>,
-                                     createDate: <#T##TimeInterval#>,
-                                     isDone: <#T##Bool#>)
+    @Published var parent: BigGroup
     
-    init(){}
+    
+    init(){
+        parent = BigGroup(id: "",
+                               title: "",
+                               dueDate: Date().timeIntervalSince1970,
+                               createDate: Date().timeIntervalSince1970,
+                               isDone: false)
+    }
     
     func save(){
         guard canSave else{

@@ -10,29 +10,13 @@ import FirebaseAuth
 import FirebaseFirestore
 
 
-class NewItemModel: ObservableObject{
+class NewBigGroupModel: ObservableObject{
     @Published var title = ""
     @Published var dueDate = Date()
     @Published var showAlert = false
-    @Published var grandParent: BigGroup
-    @Published var parent: MidGroup
-
     
     
-    init(){
-        grandParent = BigGroup(id: "",
-                               title: "",
-                               dueDate: Date().timeIntervalSince1970,
-                               createDate: Date().timeIntervalSince1970,
-                               isDone: false)
-
-        parent = MidGroup( id: "",
-                           title: "",
-                           dueDate: Date().timeIntervalSince1970,
-                           createDate: Date().timeIntervalSince1970,
-                           parent: grandParent,
-                           isDone: false)
-    }
+    init(){}
     
     func save(){
         guard canSave else{
@@ -45,12 +29,11 @@ class NewItemModel: ObservableObject{
         
         //Create model
         let newId = UUID().uuidString
-        let newItem = Item(
+        let newBigGroup = BigGroup(
             id: newId,
             title: title,
             dueDate: dueDate.timeIntervalSince1970,
             createDate: Date().timeIntervalSince1970,
-            parent: parent,
             isDone: false
         )
         
@@ -58,9 +41,9 @@ class NewItemModel: ObservableObject{
         let db = Firestore.firestore()
         db.collection("users")
                 .document(uId)
-                .collection("todos")
+                .collection("bigGoal")
                 .document(newId)
-                .setData(newItem.asDictionary())
+                .setData(newBigGroup.asDictionary())
     }
     
     var canSave: Bool{

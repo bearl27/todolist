@@ -40,5 +40,6 @@ struct ItemsView: View {
                           title: "todo",
                          dueDate: Date().timeIntervalSince1970,
                          createDate: Date().timeIntervalSince1970,
+                          parent:MidGroup,
                          isDone: false))
 }
