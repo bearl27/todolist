@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseFirestoreSwift
 
 struct DreamView: View {
-    @StateObject var viewModel: ListModel
+    @StateObject var viewModel: DreamModel
     @FirestoreQuery var bigGroups: [BigGroup]
     
     init(userId: String) {
@@ -18,7 +18,7 @@ struct DreamView: View {
         )
         
         self._viewModel = StateObject(
-            wrappedValue: ListModel(userId: userId)
+            wrappedValue: DreamModel(userId: userId)
         )
     }
     
@@ -40,13 +40,13 @@ struct DreamView: View {
             .toolbar{
                 Button{
                     //action
-                    viewModel.showingNewItemView = true
+                    viewModel.showingNewBigGroupView = true
                 } label: {
                     Image(systemName: "plus")
                 }
             }
-            .sheet(isPresented: $viewModel.showingNewItemView, content: {
-                NewItemsView(newItemPresented: $viewModel.showingNewItemView)
+            .sheet(isPresented: $viewModel.showingNewBigGroupView, content: {
+                NewBigGroupsView(newBigGroupPresented: $viewModel.showingNewBigGroupView)
             })
         }
     }

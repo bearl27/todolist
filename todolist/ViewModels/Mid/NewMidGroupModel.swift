@@ -10,24 +10,19 @@ import FirebaseAuth
 import FirebaseFirestore
 
 
-class NewItemModel: ObservableObject{
+class NewMidGroupModel: ObservableObject{
     @Published var title = ""
     @Published var dueDate = Date()
     @Published var showAlert = false
-    @Published var parent = MidGroup( id: "",
-                                    title: "",
-                                    dueDate: Date().timeIntervalSince1970,
-                                              createDate: Date().timeIntervalSince1970,
-                                              parent: BigGroup(id: "",
-                                                               title: "",
-                                                               dueDate: Date().timeIntervalSince1970,
-                                                               createDate: Date().timeIntervalSince1970,
-                                                               isDone: false),
-                                              isDone: false)
-
+    @Published var parent: BigGroup
     
     
     init(){
+        parent = BigGroup(id: "",
+                               title: "",
+                               dueDate: Date().timeIntervalSince1970,
+                               createDate: Date().timeIntervalSince1970,
+                               isDone: false)
     }
     
     func save(){
@@ -41,7 +36,7 @@ class NewItemModel: ObservableObject{
         
         //Create model
         let newId = UUID().uuidString
-        let newItem = Item(
+        let newMidGroup = MidGroup(
             id: newId,
             title: title,
             dueDate: dueDate.timeIntervalSince1970,
@@ -54,13 +49,11 @@ class NewItemModel: ObservableObject{
         let db = Firestore.firestore()
         db.collection("users")
                 .document(uId)
-                .collection("bigGoal")
-                .document(parent.parent.id)
+//                .collection("bigGoal")
+//                .document(parent.id)
                 .collection("midGoal")
-                .document(parent.id)
-                .collection("todos")
                 .document(newId)
-                .setData(newItem.asDictionary())
+                .setData(newMidGroup.asDictionary())
     }
     
     var canSave: Bool{

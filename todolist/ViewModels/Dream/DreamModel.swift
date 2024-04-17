@@ -11,7 +11,7 @@ import FirebaseFirestore
 /// ViewModel for list of items view
 /// Primary tab
 class DreamModel: ObservableObject{
-    @Published var showingNewItemView = false
+    @Published var showingNewBigGroupView = false
     
     private let userId: String
     
