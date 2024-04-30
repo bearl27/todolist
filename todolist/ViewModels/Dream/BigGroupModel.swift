@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 /// ViewModel for single to do list item view(each row in items list)
 class BigGroupModel: ObservableObject{
+    @Published var showingChildView = false
     init(){}
     
     func toggleIsDone(bigGroup: BigGroup) {

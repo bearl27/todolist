@@ -7,9 +7,15 @@
 
 import SwiftUI
 
+
 struct NewItemsView: View {
     @StateObject var viewModel = NewItemModel()
     @Binding var newItemPresented: Bool
+    
+    //PickerView
+    @State private var selectedOption = 0
+    let options = ["Option 1", "Option 2", "Option 3"]
+    
     
     var body: some View {
         VStack{
@@ -22,6 +28,13 @@ struct NewItemsView: View {
                 //Title
                 TextField("Title", text: $viewModel.title)
                     .textFieldStyle(DefaultTextFieldStyle())
+                
+                //Parent
+                Picker("Parent", selection: $selectedOption) {
+                                ForEach(0..<options.count) { index in
+                                    Text(options[index])
+                                }
+                            }
                 
                 //Due Data
                 DatePicker("Due Data", selection: $viewModel.dueDate)

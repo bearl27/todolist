@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MidGroupsView: View {
     @StateObject var viewModel = MidGroupModel()
+    @StateObject var main = MainModel()
     let midGroup: MidGroup
     
     var body: some View {
@@ -31,6 +32,13 @@ struct MidGroupsView: View {
                 
             }
             Spacer()
+            NavigationLink {
+                ToDoListView(userId: main.currentUserId)
+            } label: {
+                
+            }
+            .buttonStyle(PlainButtonStyle())
+            .padding(.horizontal, 20)
         }
     }
 }

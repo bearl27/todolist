@@ -12,6 +12,7 @@ struct MidView: View {
     @StateObject var viewModel: MidModel
     @FirestoreQuery var midGroups: [MidGroup]
     
+    
     init(userId: String) {
         self._midGroups = FirestoreQuery(
             collectionPath: "users/\(userId)/midGoal"

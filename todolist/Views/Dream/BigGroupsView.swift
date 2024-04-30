@@ -9,35 +9,47 @@ import SwiftUI
 
 struct BigGroupsView: View {
     @StateObject var viewModel = BigGroupModel()
+    @StateObject var childViewModel = MidGroupModel()
+    @StateObject var main = MainModel()
+    
     let bigGroup: BigGroup
     
     var body: some View {
-        HStack{
-            Button{
+        HStack {
+            Button {
                 viewModel.toggleIsDone(bigGroup: bigGroup)
-            } label:{
+            } label: {
                 Image(systemName: bigGroup.isDone ? "checkmark.circle.fill" : "circle")
                     .foregroundColor(.blue)
-            }.padding(.horizontal,20)
+            }
+            .buttonStyle(PlainButtonStyle())
+            .padding(.horizontal, 20)
             
-            VStack(alignment: .leading){
-                
+            VStack(alignment: .leading) {
                 Text(bigGroup.title)
                     .font(.body)
                     .bold()
                 Text("\(Date(timeIntervalSince1970: bigGroup.dueDate).formatted(date: .abbreviated, time: .shortened))")
                     .font(.footnote)
                     .foregroundColor(.gray)
+            }
+            
+            Spacer()
+            
+            NavigationLink {
+                MidView(userId: main.currentUserId)
+            } label: {
                 
             }
-            Spacer()
+            .buttonStyle(PlainButtonStyle())
+            .padding(.horizontal, 20)
         }
     }
 }
 
 #Preview {
     BigGroupsView(bigGroup: .init(id: "123",
-                          title: "todo",
+                          title: "BigGroup",
                          dueDate: Date().timeIntervalSince1970,
                          createDate: Date().timeIntervalSince1970,
                          isDone: false))
