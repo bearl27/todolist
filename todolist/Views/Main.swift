@@ -24,17 +24,17 @@ struct Main: View {
         TabView{
             DreamView(userId: viewModel.currentUserId)
                 .tabItem{
-                    Label("Dream", systemImage: "star")
+                    Label("Dream", systemImage: "trophy")
                 }
             
             MidView(userId: viewModel.currentUserId)
                 .tabItem{
-                    Label("Mid", systemImage: "star")
+                    Label("Mid", systemImage: "flag")
                 }
             
             ToDoListView(userId: viewModel.currentUserId)
                 .tabItem{
-                    Label("Home", systemImage: "house")
+                    Label("Home", systemImage: "pencil.and.list.clipboard")
                 }
             
             ProfileView()
