@@ -10,10 +10,11 @@ import SwiftUI
 struct NewBigGroupsView: View {
     @StateObject var viewModel = NewBigGroupModel()
     @Binding var newBigGroupPresented: Bool
+    @Environment(\.locale) var locale: Locale
     
     var body: some View {
         VStack{
-            Text("New Dream")
+            Text("新しい夢")
                 .font(.system(size: 32))
                 .bold()
                 .padding(.top,30)
@@ -26,6 +27,7 @@ struct NewBigGroupsView: View {
                 //Due Data
                 DatePicker("Due Data", selection: $viewModel.dueDate)
                     .datePickerStyle(GraphicalDatePickerStyle())
+                    .environment(\.locale, Locale(identifier: "ja_JP"))
                 
                 //Button
                 TLButton(title: "Save",

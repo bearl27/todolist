@@ -40,7 +40,7 @@ struct ProfileView: View {
             //Info
             VStack(alignment: .leading) {
                 HStack{
-                    Text("Name: ")
+                    Text("名前: ")
                     Text(user.name)
                 }.padding()
                 
@@ -51,7 +51,7 @@ struct ProfileView: View {
                 .padding()
                 
                 HStack {
-                    Text("Member Since:")
+                    Text("登録日:")
                     Text("\(Date(timeIntervalSince1970: user.joined).formatted(date: .abbreviated, time: .shortened))")
                 }
                 .padding()

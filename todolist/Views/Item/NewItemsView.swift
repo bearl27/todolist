@@ -17,10 +17,12 @@ struct NewItemsView: View {
     let options = ["Option 1", "Option 2", "Option 3"]
     //@FirestoreQuery var midGroups: [MidGroup]
     
+    @Environment(\.locale) var locale: Locale
+    
     
     var body: some View {
         VStack{
-            Text("New Item")
+            Text("新しいタスク")
                 .font(.system(size: 32))
                 .bold()
                 .padding(.top,30)
@@ -40,6 +42,7 @@ struct NewItemsView: View {
                 //Due Data
                 DatePicker("Due Data", selection: $viewModel.dueDate)
                     .datePickerStyle(GraphicalDatePickerStyle())
+                    .environment(\.locale, Locale(identifier: "ja_JP"))
                 
                 //Button
                 TLButton(title: "Save",

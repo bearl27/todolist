@@ -11,6 +11,7 @@ struct BigGroupsView: View {
     @StateObject var viewModel = BigGroupModel()
     @StateObject var childViewModel = MidGroupModel()
     @StateObject var main = MainModel()
+    @Environment(\.locale) var locale: Locale
     
     let bigGroup: BigGroup
     
@@ -39,6 +40,7 @@ struct BigGroupsView: View {
                 Text("\(Date(timeIntervalSince1970: bigGroup.dueDate).formatted(date: .abbreviated, time: .shortened))")
                     .font(.footnote)
                     .foregroundColor(.gray)
+                    .environment(\.locale, Locale(identifier: "ja_JP"))
             }
             
             Spacer()

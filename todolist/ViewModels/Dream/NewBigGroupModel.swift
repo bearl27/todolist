@@ -16,6 +16,7 @@ class NewBigGroupModel: ObservableObject{
     @Published var showAlert = false
     
     
+    
     init(){}
     
     func save(){

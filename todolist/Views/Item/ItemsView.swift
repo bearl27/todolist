@@ -10,6 +10,7 @@ import SwiftUI
 struct ItemsView: View {
     @StateObject var viewModel = ItemModel()
     let item: Item
+    @Environment(\.locale) var locale: Locale
     
     var body: some View {
         HStack{
