@@ -10,12 +10,14 @@ import FirebaseAuth
 import FirebaseFirestore
 
 /// ViewModel for single to do list item view(each row in items list)
-class ItemModel: ObservableObject{
-    init(){}
+class MidGroupModel: ObservableObject{
+    init(){
+        
+    }
     
-    func toggleIsDone(item: Item) {
-        var itemCopy = item
-        itemCopy.setDone(!item.isDone)
+    func toggleIsDone(midGroup: MidGroup) {
+        var midGroupCopy = midGroup
+        midGroupCopy.setDone(!midGroup.isDone)
         
         guard let uid = Auth.auth().currentUser?.uid else{
             return
@@ -24,8 +26,10 @@ class ItemModel: ObservableObject{
         let db = Firestore.firestore()
         db.collection("users")
             .document(uid)
-            .collection("todos")
-            .document(itemCopy.id)
-            .setData(itemCopy.asDictionary())
+//            .collection("bigGoal")
+//            .document(midGroupCopy.parent.id)
+            .collection("midGoal")
+            .document(midGroupCopy.id)
+            .setData(midGroupCopy.asDictionary())
     }
 }

@@ -7,12 +7,11 @@
 
 import Foundation
 
-struct Item: Codable, Identifiable{
+struct BigGroup: Codable, Identifiable{
     let id: String
     let title: String
     let dueDate: TimeInterval
     let createDate: TimeInterval
-    let parent: MidGroup
     var isDone: Bool
     
     mutating func setDone(_ state: Bool){

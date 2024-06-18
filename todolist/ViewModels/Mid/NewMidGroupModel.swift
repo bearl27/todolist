@@ -10,12 +10,20 @@ import FirebaseAuth
 import FirebaseFirestore
 
 
-class NewItemModel: ObservableObject{
+class NewMidGroupModel: ObservableObject{
     @Published var title = ""
     @Published var dueDate = Date()
     @Published var showAlert = false
+    @Published var parent: BigGroup
     
-    init(){}
+    
+    init(){
+        parent = BigGroup(id: "",
+                               title: "",
+                               dueDate: Date().timeIntervalSince1970,
+                               createDate: Date().timeIntervalSince1970,
+                               isDone: false)
+    }
     
     func save(){
         guard canSave else{
@@ -28,11 +36,12 @@ class NewItemModel: ObservableObject{
         
         //Create model
         let newId = UUID().uuidString
-        let newItem = Item(
+        let newMidGroup = MidGroup(
             id: newId,
             title: title,
             dueDate: dueDate.timeIntervalSince1970,
             createDate: Date().timeIntervalSince1970,
+            parent: parent,
             isDone: false
         )
         
@@ -40,9 +49,11 @@ class NewItemModel: ObservableObject{
         let db = Firestore.firestore()
         db.collection("users")
                 .document(uId)
-                .collection("todos")
+//                .collection("bigGoal")
+//                .document(parent.id)
+                .collection("midGoal")
                 .document(newId)
-                .setData(newItem.asDictionary())
+                .setData(newMidGroup.asDictionary())
     }
     
     var canSave: Bool{
