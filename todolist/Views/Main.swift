@@ -34,7 +34,7 @@ struct Main: View {
             
             ToDoListView(userId: viewModel.currentUserId)
                 .tabItem{
-                    Label("Home", systemImage: "pencil.and.list.clipboard")
+                    Label("todo", systemImage: "pencil.and.list.clipboard")
                 }
             
             ProfileView()
