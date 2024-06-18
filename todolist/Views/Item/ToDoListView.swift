@@ -44,6 +44,17 @@ struct ToDoListView: View {
                 } label: {
                     Image(systemName: "plus")
                 }
+                Button{
+                    //action
+                    for item in items {
+                        if item.isDone {
+                            viewModel.delete(id: item.id)
+                        }
+                    }
+                } label: {
+                    Image(systemName: "trash")
+                        .foregroundColor(.red)
+                }
             }
             .sheet(isPresented: $viewModel.showingNewItemView, content: {
                 NewItemsView(newItemPresented: $viewModel.showingNewItemView)

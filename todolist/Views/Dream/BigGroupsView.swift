@@ -26,9 +26,16 @@ struct BigGroupsView: View {
             .padding(.horizontal, 20)
             
             VStack(alignment: .leading) {
-                Text(bigGroup.title)
-                    .font(.body)
-                    .bold()
+                if bigGroup.isDone {
+                    Text(bigGroup.title)
+                        .font(.body)
+                        .bold()
+                        .strikethrough()
+                }else{
+                    Text(bigGroup.title)
+                        .font(.body)
+                        .bold()
+                }
                 Text("\(Date(timeIntervalSince1970: bigGroup.dueDate).formatted(date: .abbreviated, time: .shortened))")
                     .font(.footnote)
                     .foregroundColor(.gray)

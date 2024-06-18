@@ -22,9 +22,16 @@ struct ItemsView: View {
             
             VStack(alignment: .leading){
                 
-                Text(item.title)
-                    .font(.body)
-                    .bold()
+                if item.isDone {
+                    Text(item.title)
+                        .font(.body)
+                        .bold()
+                        .strikethrough()
+                }else{
+                    Text(item.title)
+                        .font(.body)
+                        .bold()
+                }
                 Text("\(Date(timeIntervalSince1970: item.dueDate).formatted(date: .abbreviated, time: .shortened))")
                     .font(.footnote)
                     .foregroundColor(.gray)

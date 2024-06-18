@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import FirebaseFirestoreSwift
 
 struct NewItemsView: View {
     @StateObject var viewModel = NewItemModel()
@@ -15,6 +15,7 @@ struct NewItemsView: View {
     //PickerView
     @State private var selectedOption = 0
     let options = ["Option 1", "Option 2", "Option 3"]
+    //@FirestoreQuery var midGroups: [MidGroup]
     
     
     var body: some View {

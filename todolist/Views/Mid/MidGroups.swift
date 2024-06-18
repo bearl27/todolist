@@ -19,17 +19,24 @@ struct MidGroupsView: View {
             } label:{
                 Image(systemName: midGroup.isDone ? "checkmark.circle.fill" : "circle")
                     .foregroundColor(.blue)
-            }.padding(.horizontal,20)
+            }
+            .buttonStyle(PlainButtonStyle())
+            .padding(.horizontal,20)
             
             VStack(alignment: .leading){
-                
-                Text(midGroup.title)
-                    .font(.body)
-                    .bold()
+                if midGroup.isDone {
+                    Text(midGroup.title)
+                        .font(.body)
+                        .bold()
+                        .strikethrough()
+                }else{
+                    Text(midGroup.title)
+                        .font(.body)
+                        .bold()
+                }
                 Text("\(Date(timeIntervalSince1970: midGroup.dueDate).formatted(date: .abbreviated, time: .shortened))")
                     .font(.footnote)
                     .foregroundColor(.gray)
-                
             }
             Spacer()
             NavigationLink {

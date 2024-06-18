@@ -36,13 +36,25 @@ struct DreamView: View {
                         }
                 }
             }
-            .navigationTitle("Dream")
+            .navigationTitle("夢")
             .toolbar{
                 Button{
                     //action
                     viewModel.showingNewBigGroupView = true
                 } label: {
                     Image(systemName: "plus")
+                }
+                
+                Button{
+                    //action
+                    for bigGroup in bigGroups {
+                        if bigGroup.isDone {
+                            viewModel.delete(id: bigGroup.id)
+                        }
+                    }
+                } label: {
+                    Image(systemName: "trash")
+                        .foregroundColor(.red)
                 }
             }
             .sheet(isPresented: $viewModel.showingNewBigGroupView, content: {

@@ -14,7 +14,7 @@ struct RegView: View {
     var body: some View {
         VStack{
             //Header
-            HeaderView(title: "新規登録", subtitle: "Start", angle: -15, background: .orange)
+            HeaderView(title: "新規登録", subtitle: "ともに夢を叶えよう！！", angle: 0, background: .orange)
                 .offset(y: -100)
         }
         //Reg Form

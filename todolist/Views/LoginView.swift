@@ -16,7 +16,7 @@ struct LoginView: View {
         NavigationView{
             VStack{
                 //header
-                HeaderView(title: "ログイン", subtitle: "ようこそ", angle: 15, background: .blue)
+                HeaderView(title: "ログイン", subtitle: "おかえりなさい", angle: 15, background: .blue)
                     .offset(y: -100)
                 
                 

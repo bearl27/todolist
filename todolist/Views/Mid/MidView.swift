@@ -37,13 +37,26 @@ struct MidView: View {
                         }
                 }
             }
-            .navigationTitle("Mid")
+            .navigationTitle("中間目標")
             .toolbar{
                 Button{
                     //action
                     viewModel.showingNewMidGroupView = true
                 } label: {
                     Image(systemName: "plus")
+                }
+                
+                Button{
+                    //action
+                    for midGroup in midGroups {
+                        if midGroup.isDone {
+                            viewModel.delete(id: midGroup.id)
+                        }
+                    }
+                        
+                } label: {
+                    Image(systemName: "trash")
+                        .foregroundColor(.red)
                 }
             }
             .sheet(isPresented: $viewModel.showingNewMidGroupView, content: {
