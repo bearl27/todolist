@@ -38,8 +38,6 @@ struct SimpleEntry: TimelineEntry {
     let configuration: ConfigurationAppIntent
 }
 
-struct widgetEntryView : View {
-    var entry: Provider.Entry
 //    var body: some View {
 //            VStack{
 //                ForEach(entry.items){ item in
@@ -49,29 +47,86 @@ struct widgetEntryView : View {
 //            }
 //    
 
+struct widgetEntryView : View {
+    var entry: Provider.Entry
+    @Environment(\.widgetFamily) var widgetFamily
+
     var body: some View {
-        VStack {
-//            HStack{
-//                Text("Time:")
-//                Text(entry.date, style: .time)
-//            }
-            Text("今日のタスクを確認しよう！！")
-            Text(entry.configuration.favoriteEmoji)
+        switch widgetFamily {
+        case .accessoryCircular:
+            // ロック画面用のビュー
+            ZStack {
+                VStack {
+                    Text("叶")
+                        .font(.title)
+                }
+                .padding()
+            }
+            .widgetAccentable()
+            .background(
+                Circle()
+                    .fill(Color.black)
+            )
+        case .systemSmall:
+            // 小サイズのビュー
+            VStack {
+                Text("今日のタスク")
+                Text(entry.configuration.favoriteEmoji)
+            }
+            .padding()
+        case .systemMedium:
+            // 中サイズのビュー
+            VStack {
+                Text("今日のタスクを確認しよう！！")
+                Text(entry.configuration.favoriteEmoji)
+            }
+            .padding()
+        case .systemLarge:
+            // 大サイズのビュー
+            VStack {
+                Text("今日のタスク")
+                    .font(.title)
+                Text("詳細なタスクの説明")
+                Text(entry.configuration.favoriteEmoji)
+                    .font(.largeTitle)
+            }
+            .padding()
+        case .systemExtraLarge:
+            // 特大サイズのビュー
+            VStack {
+                Text("今日のタスク")
+                    .font(.title)
+                Text("詳細なタスクの説明")
+                    .font(.body)
+                Text(entry.configuration.favoriteEmoji)
+                    .font(.system(size: 80))
+            }
+            .padding()
+        case .accessoryRectangular:
+            VStack {
+                Text("今日のタスク")
+                    .font(.title)
+                Text("詳細なタスクの説明")
+                    .font(.body)
+                Text(entry.configuration.favoriteEmoji)
+                    .font(.system(size: 80))
+            }
+            .padding()
+        case .accessoryInline:
+            VStack {
+                Text("今日のタスク")
+                    .font(.title)
+                Text("詳細なタスクの説明")
+                    .font(.body)
+                Text(entry.configuration.favoriteEmoji)
+                    .font(.system(size: 80))
+            }
+            .padding()
+        @unknown default:
+            fatalError("Unknown WidgetFamily")
         }
     }
-//    var items = ["item1", "item2", "item3","item4","item5"]
-//        
-//        var body: some View {
-//                VStack(alignment: .leading) {
-//                    ForEach(items, id: \.self) { item in
-//                        Text(item)
-//                            .background(Color(red: 0.56, green: 0.56, blue: 0.7, opacity: 0.5))
-//                    }
-//                }
-//        }
-    
 }
-
 struct widget: Widget {
     let kind: String = "widget"
 
@@ -80,7 +135,23 @@ struct widget: Widget {
             widgetEntryView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
         }
+        .configurationDisplayName("My Widget")
+        .description("This is an example widget.")
+        .supportedFamilies(supportedFamilies)
     }
+    
+    @available(iOSApplicationExtension 16.0, *)
+        private var supportedFamilies: [WidgetFamily] {
+            [
+                .systemSmall,
+                .systemMedium,
+                .systemLarge,
+                .systemExtraLarge,
+                .accessoryInline,
+                .accessoryCircular,
+                .accessoryRectangular
+            ]
+        }
 }
 
 extension ConfigurationAppIntent {

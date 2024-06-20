@@ -10,12 +10,14 @@ import SwiftUI
 struct ItemsView: View {
     @StateObject var viewModel = ItemModel()
     let item: Item
+    //let user: User
     @Environment(\.locale) var locale: Locale
     
     var body: some View {
         HStack{
             Button{
                 viewModel.toggleIsDone(item: item)
+                //viewModel.plusDoneNum(user: user, item: item)
             } label:{
                 Image(systemName: item.isDone ? "checkmark.circle.fill" : "circle")
                     .foregroundColor(.blue)

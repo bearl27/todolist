@@ -55,6 +55,24 @@ struct ProfileView: View {
                     Text("\(Date(timeIntervalSince1970: user.joined).formatted(date: .abbreviated, time: .shortened))")
                 }
                 .padding()
+                
+                HStack {
+                    Text("叶えた夢の数：")
+                    Text("\(user.doneItemNum)")
+                }
+                .padding()
+                
+                HStack {
+                    Text("達成中間目標数：")
+                    Text("\(user.doneItemNum)")
+                }
+                .padding()
+                
+                HStack {
+                    Text("達成タスク数：")
+                    Text("\(user.doneItemNum)")
+                }
+                .padding()
             }
             
             // Sign out

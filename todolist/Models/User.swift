@@ -12,4 +12,16 @@ struct User: Codable{
     let name: String
     let email: String
     let joined: TimeInterval
+    var doneItemNum: Int
+    var doneMidNum: Int
+    var doneDreamNum: Int
+    
+    mutating func plusDoneItemNum(_ state: Bool){
+        if state{
+            doneItemNum = doneItemNum + 1
+        }else{
+            doneItemNum = doneItemNum - 1
+        }
+    }
 }
+

@@ -32,4 +32,18 @@ class ItemModel: ObservableObject{
             .document(itemCopy.id)
             .setData(itemCopy.asDictionary())
     }
+    
+    func plusDoneNum(user: User,item:Item) {
+        var userCopy = user
+        userCopy.plusDoneItemNum(item.isDone)
+        
+        guard let uid = Auth.auth().currentUser?.uid else{
+            return
+        }
+        
+        let db = Firestore.firestore()
+        db.collection("users")
+            .document(uid)
+            .setData(userCopy.asDictionary())
+    }
 }

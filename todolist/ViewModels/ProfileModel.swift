@@ -23,7 +23,10 @@ class ProfileModel: ObservableObject {
                     id: data["id"] as? String ?? "",
                     name: data["name"] as? String ?? "",
                     email: data["email"] as? String ?? "",
-                    joined: data["joined"] as? TimeInterval ?? 0)
+                    joined: data["joined"] as? TimeInterval ?? 0,
+                    doneItemNum: data["doneItemNum"] as? Int ?? 0,
+                    doneMidNum: data["doneMidNum"] as? Int ?? 0,
+                    doneDreamNum: data["doneDreamNum"] as? Int ?? 0)
             }
         }
     }

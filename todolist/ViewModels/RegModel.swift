@@ -39,7 +39,10 @@ class RegModel: ObservableObject{
         let newUser = User(id: id,
                            name: name,
                            email: email,
-                           joined: Date().timeIntervalSince1970)
+                           joined: Date().timeIntervalSince1970,
+                           doneItemNum: 0,
+                           doneMidNum: 0,
+                           doneDreamNum: 0)
         
         let db = Firestore.firestore()
         
