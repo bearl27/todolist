@@ -32,12 +32,12 @@ struct NewItemsView: View {
                 TextField("Title", text: $viewModel.title)
                     .textFieldStyle(DefaultTextFieldStyle())
                 
-                //Parent
-                Picker("Parent", selection: $selectedOption) {
-                                ForEach(0..<options.count) { index in
-                                    Text(options[index])
-                                }
-                            }
+//                //Parent
+//                Picker("Parent", selection: $selectedOption) {
+//                                ForEach(0..<options.count) { index in
+//                                    Text(options[index])
+//                                }
+//                            }
                 
                 //Due Data
                 DatePicker("Due Data", selection: $viewModel.dueDate)

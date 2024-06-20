@@ -49,27 +49,27 @@ struct widgetEntryView : View {
 //            }
 //    
 
-//    var body: some View {
-//        VStack {
-//            Text("Time:")
-//            Text(entry.date, style: .time)
-//            
-//            Text("こんにちは")
-//
-//            Text("Favorite Emoji:")
-//            Text(entry.configuration.favoriteEmoji)
-//        }
-//    }
-    var items = ["item1", "item2", "item3","item4","item5"]
-        
-        var body: some View {
-                VStack(alignment: .leading) {
-                    ForEach(items, id: \.self) { item in
-                        Text(item)
-                            .background(Color(red: 0.56, green: 0.56, blue: 0.7, opacity: 0.5))
-                    }
-                }
+    var body: some View {
+        VStack {
+//            HStack{
+//                Text("Time:")
+//                Text(entry.date, style: .time)
+//            }
+            Text("今日のタスクを確認しよう！！")
+            Text(entry.configuration.favoriteEmoji)
         }
+    }
+//    var items = ["item1", "item2", "item3","item4","item5"]
+//        
+//        var body: some View {
+//                VStack(alignment: .leading) {
+//                    ForEach(items, id: \.self) { item in
+//                        Text(item)
+//                            .background(Color(red: 0.56, green: 0.56, blue: 0.7, opacity: 0.5))
+//                    }
+//                }
+//        }
+    
 }
 
 struct widget: Widget {
