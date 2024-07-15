@@ -3,7 +3,7 @@
 
 
 <!-- プロダクト名・イメージ画像を差し変えてください -->
-
+<img width="257" alt="icon" src="https://github.com/user-attachments/assets/4dbf4b89-f06b-4d52-aa33-e25cd082b06c">
 
 ## 開発者
 bearl（個人開発）
@@ -43,7 +43,7 @@ iosのスマートフォンアプリを作成した．
 ## 使用技術
 **開発環境:** Xcode
 - 使用言語: Swift
-- データベース：　Firebase
+- データベース: Firebase
             
 
 <!--
